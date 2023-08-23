@@ -1,0 +1,126 @@
+
+import Logo from '../../assets/lastNav.png'
+import { MdDarkMode } from 'react-icons/md';
+// import { CiLight } from 'react-icons/ci';
+import { FiSun } from 'react-icons/fi';
+import Link from 'next/link';
+import Image from 'next/image';
+// import { useEffect, useState } from 'react';
+
+const NavBar = () => {
+
+    // const [theme, setTheme] = useState('light');
+
+    // useEffect(() => {
+    //     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    //     setTheme(prefersDarkMode)
+    // }, [])
+
+    // useEffect(() => {
+    //     if (theme === "dark") {
+    //         document.documentElement.classList.add("dark")
+    //     }
+    //     else {
+    //         document.documentElement.classList.remove("dark")
+    //     }
+    // }, [theme]);
+
+
+
+    // const handleSwitch = () => {
+    //     setTheme(theme === "dark" ? "light" : "dark")
+    // }
+
+
+    return (
+        <div style={{ position: "sticky", top: 0, zIndex: 100 }} >
+            <div className="navbar bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700  text-white  py-4 " style={{ backgroundImage: "linear-gradient(180deg, purple 1px, 1px)", backgroundSize: "3px 3px" }}>
+                <div className="lg:navbar-start md:navbar-start">
+
+                    <div className="dropdown">
+                        <label tabIndex={0} className="btn btn-ghost lg:hidden md:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        </label>
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content pt-5 z-[1] p-2 shadow bg-white rounded-box w-52 text-black dark:bg-slate-800 dark:text-white">
+                            <li><Link href='/'>Home</Link></li>
+                            <li>
+                                <a>Pages</a>
+                                <ul className="p-2 bg-white dark:bg-slate-800 dark:text-white">
+
+                                    <li className='text-black dark:text-white font-semibold '><Link href='/makeDiv'>Our Goal</Link></li>
+                                    <li className='text-black dark:text-white font-semibold '><Link href='/pricing'>Pricing</Link></li>
+                                    <li className='text-black dark:text-white font-semibold '><Link href='/reviews'>Review</Link></li>
+                                    <li className='text-black dark:text-white font-semibold '><Link href='/faqs'>FAQs</Link></li>
+                                    <li className='text-black dark:text-white font-semibold '><Link href='/terms'>Terms</Link></li>
+
+                                </ul>
+                            </li>
+                            <li><Link href='/contact'>Contact</Link></li>
+                            <li>
+                                <a>Blogs</a>
+                                <ul className="p-2 ">
+                                    <li className='text-black dark:text-white font-semibold'><Link href='/blog1'>App Blog</Link></li>
+                                    <li className='text-black dark:text-white font-semibold'><Link href='/blog2'>Website Blog</Link></li>
+                                </ul>
+                            </li>
+                            {/* <li>
+                                <button onClick={handleSwitch} className=" ">{
+                                    theme === "dark" ? <span className='flex dark:text-white'><FiSun className='text-2xl me-3 hover:text-white dark:text-white'></FiSun>Light</span> : <span className='flex '><MdDarkMode className='text-2xl  hover:text-white me-3'></MdDarkMode>Dark</span>
+                                }</button>
+                            </li> */}
+
+                        </ul>
+                    </div>
+                    <div className='flex lg:mx-4 md:mx-6 '>
+
+                        <Link href='/' className="" >
+                            <Image
+                                src={Logo}
+                                alt='navBarLogo'
+                                className='w-full h-20'
+                            ></Image>
+                            {/* <img src={Logo} alt="" className=' lg:h-24 md:h-24 h-20 ' /> */}
+                        </Link>
+                    </div>
+                </div>
+                <div className="lg:navbar-end md:navbar-center  hidden lg:flex md:flex lg:me-6 ">
+                    <ul className="menu menu-horizontal px-1 ">
+                        <li className='text-xl font-bold  hover:bg-pink-500 rounded-md'><Link href='/' className='hover:text-white dark:text-black'>Home</Link></li>
+                        <li tabIndex={0}>
+                            <details>
+                                <summary className='text-xl font-bold hover:text-white hover:bg-pink-500 dark:text-black'>Pages</summary>
+                                <ul className="p-4 dark:bg-slate-800 dark:text-white">
+
+                                    <li ><Link href='/makeDiv' className='text-black hover:text-white dark:text-white  font-semibold '>Our Goal</Link></li>
+                                    <li ><Link href='/pricing' className='text-black dark:text-white font-semibold '>Pricing</Link></li>
+                                    <li ><Link href='/reviews' className='text-black dark:text-white font-semibold '>Review</Link></li>
+                                    <li ><Link href='/faqs' className='text-black dark:text-white font-semibold '>FAQs</Link></li>
+                                    <li ><Link href='/terms' className='text-black dark:text-white font-semibold '>Terms</Link></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li className='text-xl font-bold hover:text-white hover:bg-pink-500 rounded-md'><Link href='/contact' className='hover:text-white dark:text-black'>Contact</Link></li>
+                        <li tabIndex={0}>
+                            <details>
+                                <summary className='text-xl font-bold hover:text-white hover:bg-pink-500 dark:text-black'>Blogs</summary>
+                                <ul className="p-2 dark:bg-slate-800 dark:text-white">
+                                    <li><Link href='/blog1' className='text-black dark:text-white font-semibold '>App Blog</Link></li>
+                                    <li ><Link href='/blog2' className='text-black dark:text-white font-semibold '>Website Blog</Link></li>
+                                </ul>
+                            </details>
+                        </li>
+                        {/* <li>
+                            <button onClick={handleSwitch} className="animate-bounce mt-1">{
+                                theme === "dark" ? <FiSun className='text-2xl mt-1 '></FiSun> : <MdDarkMode className='text-2xl mt-1 hover:text-white'></MdDarkMode>
+                            }</button>
+                        </li> */}
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    );
+};
+
+export default NavBar;
